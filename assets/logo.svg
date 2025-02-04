@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="500"
+   height="500"
+   viewBox="0 0 500 500"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,0 H 1562.5 V 1562.5 H 0 Z"
+         clip-rule="evenodd"
+         id="path14" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28">
+      <path
+         d="M 0,0 H 1562.5 V 1562.5 H 0 Z"
+         clip-rule="evenodd"
+         id="path26" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath40">
+      <path
+         d="M 0,0 H 1562.5 V 1562.5 H 0 Z"
+         clip-rule="evenodd"
+         id="path38" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath54">
+      <path
+         d="M 105.22636,760.39209 H 1529.2913 v 81.06506 H 105.22636 Z"
+         clip-rule="evenodd"
+         id="path52" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath66">
+      <path
+         d="M 0,0 H 1562.5 V 1562.5 H 0 Z"
+         clip-rule="evenodd"
+         id="path64" />
+    </clipPath>
+  </defs>
+  <g
+     id="g8"
+     transform="matrix(0.31999998,0,0,0.31999998,0,9.434666e-6)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18"
+           transform="scale(3.125)">
+          <path
+             d="M 0,0 H 500 V 500 H 0 Z"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path20" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g22">
+      <g
+         id="g24"
+         clip-path="url(#clipPath28)">
+        <g
+           id="g30"
+           transform="scale(3.125)">
+          <path
+             d="M 0,0 H 500 V 500 H 0 Z"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path32" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g34">
+      <g
+         id="g36"
+         clip-path="url(#clipPath40)">
+        <g
+           id="g42"
+           transform="matrix(3.4877234,0,0,3.4877234,37.29755,272.11084)">
+          <text
+             xml:space="preserve"
+             transform="translate(18.3125,208)"
+             style="font-variant:normal;font-weight:normal;font-size:200px;font-family:BlackMango;-inkscape-font-specification:BlackMango-Regular;writing-mode:lr-tb;fill:#018b48;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text46"><tspan
+               x="0 133.20003 266.40005"
+               y="0"
+               id="tspan44">SSA</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g48">
+      <g
+         id="g50"
+         clip-path="url(#clipPath54)">
+        <g
+           id="g56"
+           transform="matrix(0.31666046,0,0,0.31666046,105.22636,760.39209)">
+          <path
+             d="M 0,0 H 4497 V 256 H 0 Z"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path58" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g60">
+      <g
+         id="g62"
+         clip-path="url(#clipPath66)">
+        <g
+           id="g68"
+           transform="matrix(3.125,0,0,3.125,177.88612,763.23938)">
+          <text
+             xml:space="preserve"
+             transform="translate(3.5,18)"
+             style="font-variant:normal;font-weight:normal;font-size:19.7px;font-family:Brice;-inkscape-font-specification:Brice-RegularSemiExpanded;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text72"><tspan
+               x="0 18.960812 44.005043 64.284912 85.037292 103.40749 122.3683 143.31755 162.51462 181.71169 200.08188 207.91931 228.19919 248.99094 267.36111 288.48755 313.53177 333.81165 352.18182 361.4761 382.60254"
+               y="0"
+               id="tspan70">SMARTSHEET AUTOMATION</tspan></text>
+        </g>
+        <g
+           id="g74"
+           transform="matrix(-3.125,0,0,-3.125,174.27599,799.54736)">
+          <path
+             d="M 0,1 H 23.768236"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             id="path76" />
+        </g>
+        <g
+           id="g78"
+           transform="matrix(-3.125,0,0,-3.125,1534.5012,796.42236)">
+          <path
+             d="M 0,1 H 23.768236"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             id="path80" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
