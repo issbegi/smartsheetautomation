@@ -927,30 +927,4 @@
             });
         </script>
     </body>
-
-       if (window.scrollY > 300) {
-                    button.classList.add('visible');
-                } else {
-                    button.classList.remove('visible');
-                }
-            });
-            // Preloader functionality
-            window.addEventListener('load', function () {
-                const preloader = document.getElementById('preloader');
-                const body = document.body;
-
-                // Delay for effect
-                setTimeout(function () {
-                    preloader.classList.add('fade-out');
-
-                    // Remove preloader after fade animation completes
-                    setTimeout(function () {
-                        preloader.style.display = 'none';
-                        body.style.overflow = 'auto'; // Re-enable scrolling
-                    }, 500);
-                }, 1500);
-            });
-        </script>
-    </body>
-
 </html>
