@@ -7,9 +7,13 @@
     <title>SmartSheet Automation</title>
     <link rel="icon" href="assets/favicon.ico" type="image/ico">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+=======
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
     <!-- Moved Alpine.js to the end of body -->
     <style>
         :root {
@@ -22,6 +26,7 @@
             --gray-200: #edf2f7;
             --gray-300: #e2e8f0;
             --gray-800: #2d3748;
+<<<<<<< HEAD
         }
 
         body {
@@ -30,17 +35,32 @@
             line-height: 1.6;
         }
 
+=======
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9fafb;
+            line-height: 1.6;
+        }
+
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--secondary);
             background: var(--light);
             line-height: 1.6;
+<<<<<<< HEAD
             overflow: hidden;
             /* Prevent scrolling during preloader */
         }
@@ -92,6 +112,12 @@
         h2,
         h3,
         h4 {
+=======
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             font-weight: 500;
             line-height: 1.2;
             margin-bottom: 1rem;
@@ -154,7 +180,11 @@
 
         .logo-text {
             font-size: 1.25rem;
+<<<<<<< HEAD
             font-weight: 400;
+=======
+            font-weight: 500;
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             color: var(--dark);
         }
 
@@ -241,7 +271,11 @@
         .video-container:hover {
             transform: translateY(-10px);
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
         .video-container video {
             width: 100%;
             height: auto;
@@ -332,7 +366,7 @@
                 opacity: 1;
             }
         }
-
+        
         .animate-slide-in {
             animation: slideIn 0.8s ease-out forwards;
         }
@@ -356,7 +390,6 @@
             .nav-links {
                 display: none;
             }
-
             .mobile-menu-btn {
                 display: block;
             }
@@ -364,28 +397,45 @@
             .logo-text {
                 font-size: 1.1rem;
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             /* New styles for mobile video */
             .video-container {
                 width: 100%;
                 margin-bottom: 2rem;
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             main .grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             .video-container video {
                 width: 100%;
                 max-height: none;
                 object-fit: contain;
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             /* Show the mobile menu when active */
             .mobile-menu.active {
                 display: block;
             }
+<<<<<<< HEAD
 
         }
     </style>
@@ -423,6 +473,37 @@
                 </button>
             </nav>
 
+=======
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <img src="assets/logo.svg" alt="SmartSheet Automation Logo" class="logo-img">
+                    <span class="logo-text">SmartSheet Automation</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Our Services</a>
+                    <a href="casestudies.html" class="nav-link">Case Studies</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="mobile-menu-btn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+            
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             <!-- Mobile Menu - Changed to use vanilla JS instead of Alpine -->
             <div id="mobileMenu" class="mobile-menu">
                 <a href="index.html" class="mobile-link">Home</a>
@@ -443,6 +524,7 @@
                 <!-- Removed the green overlay as requested -->
             </div>
             <div class="content-block animate-slide-in" style="animation-delay: 0.4s">
+<<<<<<< HEAD
                 <h1 class="text-4xl  mb-8 text-gray-800 animate-fade-in">Unleashing the Power of Automated
                     Workflows!</span></h1>
                 <p class="mt-4 text-gray-700 leading-relaxed text-medium">
@@ -453,12 +535,18 @@
                     expertise in <span class="highlight-text">VBA, Power Query, and system integration</span> ensures
                     businesses reduce errors, save time, and make smarter decisions. Let's elevate your business
                     efficiency with tailored automation solutions!
+=======
+                <h1 class="text-4xl  mb-8 text-gray-800 animate-fade-in">Unleashing the Power of Automated Workflows!</span></h1>
+                <p class="mt-4 text-gray-700 leading-relaxed text-medium">
+                    At <span class="highlight-text">SmartSheet Automation</span>, we empower businesses with intelligent automation and data-driven solutions using Microsoft tools. Leveraging <span class="highlight-text">Excel, Power BI, and Power Automate</span>, we eliminate manual inefficiencies, deliver real-time analytics, and automate workflows for seamless operations. Our expertise in <span class="highlight-text">VBA, Power Query, and system integration</span> ensures businesses reduce errors, save time, and make smarter decisions. Let's elevate your business efficiency with tailored automation solutions!
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
                 </p>
             </div>
         </section>
 
         <!-- Added new feature section with improved spacing -->
         <section class="my-20 animate-slide-in" style="animation-delay: 0.6s">
+<<<<<<< HEAD
             <h2 class="text-3xl  text-center mb-16 style=" color: #38A169;">Our Core Services</h2>
             <div class="grid md:grid-cols-3 gap-10">
                 <div
@@ -500,6 +588,38 @@
                     <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Data Visualization</h3>
                     <p class="text-gray-600 text-center">Powerful dashboards and reports using Power BI to transform
                         your data into actionable insights.</p>
+=======
+            <h2 class="text-3xl  text-center mb-16 style="color: #38A169;">Our Core Services</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Excel Automation</h3>
+                    <p class="text-gray-600 text-center">Custom Excel solutions with VBA, macros, and advanced formulas to automate repetitive tasks.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Power Automate</h3>
+                    <p class="text-gray-600 text-center">Streamlined workflows connecting your applications and services for seamless data flow.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Data Visualization</h3>
+                    <p class="text-gray-600 text-center">Powerful dashboards and reports using Power BI to transform your data into actionable insights.</p>
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
                 </div>
             </div>
         </section>
@@ -527,8 +647,12 @@
                         </svg>
                         info@smartsheetautomation.co.ke
                     </a>
+<<<<<<< HEAD
                     <a href="tel:+254 792 070169"
                         class="flex items-center hover:text-green-500 transition-colors duration-300 group">
+=======
+                    <a href="tel:+254 792 070169" class="flex items-center hover:text-green-500 transition-colors duration-300 group">
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
                         <svg class="w-5 h-5 mr-3 group-hover:text-green-500" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.036 11.036 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.61 18 2 12.39 2 6V3z" />
@@ -553,15 +677,24 @@
         </div>
 
         <!-- Scroll to Top Button -->
+<<<<<<< HEAD
         <button id="scrollToTopBtn" class="top-button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+=======
+        <button id="scrollToTopBtn" 
+                class="top-button"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             </svg>
         </button>
     </footer>
 
     <!-- AlpineJS script moved to end of body -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<<<<<<< HEAD
 
     <script>
         // Vanilla JavaScript for mobile menu toggle
@@ -573,6 +706,19 @@
                 mobileMenu.classList.toggle('active');
             });
 
+=======
+    
+    <script>
+        // Vanilla JavaScript for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+            
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
             // Scroll to top button functionality
             window.addEventListener('scroll', function () {
                 const button = document.getElementById('scrollToTopBtn');
@@ -583,6 +729,7 @@
                 }
             });
         });
+<<<<<<< HEAD
 
         // Preloader functionality
         window.addEventListener('load', function () {
@@ -604,3 +751,8 @@
 </body>
 
 </html>
+=======
+    </script>
+</body>
+</html>
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032

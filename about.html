@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -620,6 +621,575 @@
         });
 
         // Preloader functionality
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            const body = document.body;
+
+            // Delay for effect
+            setTimeout(function () {
+                preloader.classList.add('fade-out');
+
+                // Remove preloader after fade animation completes
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                    body.style.overflow = 'auto'; // Re-enable scrolling
+                }, 500);
+            }, 1500);
+        });
+    </script>
+</body>
+
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>About Us | SmartSheet Automation</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/ico">
+
+    <style>
+        :root {
+            --primary: #38a169;
+            --primary-dark: #2f855a;
+            --secondary: #2d3748;
+            --light: #f7fafc;
+            --dark: #38A169;
+            --gray-100: #f7fafc;
+            --gray-200: #edf2f7;
+            --gray-300: #e2e8f0;
+            --gray-800: #2d3748;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            background: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        .site-header {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 4.5rem;
+            transition: transform 0.3s;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+
+        .nav-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .mobile-menu.active {
+                display: block;
+            }
+        
+        .mobile-link {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-200);
+            transition: color 0.3s;
+        }
+
+        .mobile-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(246,246,246,0.9) 100%), url('/api/placeholder/1920/400') center/cover no-repeat;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-title {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Cards */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            flex: 1;
+            min-width: 300px;
+            transform: translateY(0);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--gray-100);
+            text-align: center;
+            padding: 4rem 0;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.875rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Top button styles from paste.txt */
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #38a169;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+        }
+
+        .top-button.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .top-button:hover {
+            background: #2f855a;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+        
+            
+
+            .card-container {
+                flex-direction: column;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+        }
+    </style>
+</head>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <img src="assets/logo.svg" alt="SmartSheet Automation Logo" class="logo-img">
+                    <span class="logo-text">SmartSheet Automation</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Our Services</a>
+                    <a href="casestudies.html" class="nav-link">Case Studies</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="mobile-menu-btn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+            
+            <!-- Mobile Menu - Fixed to use vanilla JS -->
+            <div id="mobileMenu" class="mobile-menu">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="about.html" class="mobile-link">About Us</a>
+                <a href="services.html" class="mobile-link">Our Services</a>
+                <a href="casestudies.html" class="mobile-link">Case Studies</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+        <div class="container">
+            <h1 class="page-title">About SmartSheet Automation</h1>
+            <p class="hero-subtitle">Your Trusted Partner for Business Process Automation</p>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Who We Are Section -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="intro">
+                SmartSheet Automation is a <span class="highlight">leading business process automation firm</span> specializing in <span class="highlight">Excel, Power Query, VBA, and Power BI solutions</span>. We help businesses <span class="highlight">streamline workflows, eliminate manual tasks, and enhance data-driven decision-making</span> through custom automation tools.
+            </p>
+            
+            <div class="card-container">
+                <div class="card" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Our Mission</h3>
+                    <p>To <span class="highlight">empower businesses</span> with cutting-edge automation solutions that <span class="highlight">boost efficiency, reduce errors, and save time</span>.</p>
+                </div>
+                
+                <div class="card" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Our Vision</h3>
+                    <p>To be the <span class="highlight">go-to automation partner</span> for businesses seeking to maximize productivity using <span class="highlight">Excel, Power Query, and Power BI</span>.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="card" data-aos="zoom-in">
+                <ul>
+                    <li><span class="highlight">Expertise in Automation</span> – 10+ years of experience in <span class="highlight">Excel, Power Query, VBA, and Power BI</span>.</li>
+                    <li><span class="highlight">Custom Solutions</span> – Tailored automation tools designed to meet your specific business needs.</li>
+                    <li><span class="highlight">Time & Cost Savings</span> – Our solutions drastically <span class="highlight">reduce manual work</span> and improve efficiency.</li>
+                    <li><span class="highlight">Proven Track Record</span> – Successful automation projects across <span class="highlight">banking, retail, finance, and logistics</span>.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Our Journey Section -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="card" data-aos="fade-up">
+                <p>
+                    Founded by <span class="highlight">Patrick Kobe</span>, SmartSheet Automation started as a passion for <span class="highlight">simplifying business processes</span>. Over the years, we have helped multiple businesses <span class="highlight">transform their workflows</span>, making manual, repetitive tasks a thing of the past.
+                </p>
+            </div>
+            
+            <h2 class="section-title">Our Clients</h2>
+            <div class="card" data-aos="fade-up">
+                <p>We serve a wide range of industries, including:</p>
+                <ul>
+                    <li><span class="highlight">Finance & Banking</span> – Automated reconciliations, financial reporting.</li>
+                    <li><span class="highlight">Retail & E-commerce</span> – Sales tracking, inventory management.</li>
+                    <li><span class="highlight">Human Resources</span> – Payroll automation, employee database management.</li>
+                    <li><span class="highlight">Logistics & Supply Chain</span> – Inventory and shipment tracking.</li>
+                </ul>
+            </div>
+            
+            <div class="cta" data-aos="zoom-in">
+                <h3> Want to optimize your business workflows?</h3>
+                <a href="contact.html" class="btn">Let's Connect</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer - UPDATED to match paste.txt -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <!-- Company Info -->
+            <div class="space-y-4 mb-2">
+                <h3 class="text-2xl font-bold text-green-500">SmartSheet Automation</h3>
+                <p class="text-lg">Transforming business workflows with intelligent automation solutions. Streamline your processes and boost productivity.</p>
+            </div>
+    
+            <!-- Contact Information -->
+            <div class="space-y-6 mb-12">
+                <h4 class="text-xl font-semibold text-green-500">Get In Touch</h4>
+                <div class="space-y-4">
+                    <a href="mailto:patrickjkobe@gmail.com" class="flex items-center hover:text-green-500 transition-colors duration-300 group">
+                        <svg class="w-5 h-5 mr-3 group-hover:text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        patrickjkobe@gmail.com
+                    </a>
+                    <a href="tel:+254 792 070169" class="flex items-center hover:text-green-500 transition-colors duration-300 group">
+                        <svg class="w-5 h-5 mr-3 group-hover:text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.036 11.036 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.61 18 2 12.39 2 6V3z"/>
+                        </svg>
+                        +254 792 070169
+                    </a>
+                    <a href="https://www.instagram.com/smartsheet_automation/?__pwa=1#" target="_blank" class="flex items-center hover:text-green-500 transition-colors duration-300 group">
+                        <svg class="w-5 h-5 mr-3 group-hover:text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.148-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        smartsheet_automation
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-gray-800 text-center">
+                <p class="text-sm text-green-500">&copy; 2025 SmartSheet Automation. All Rights Reserved.</p>
+            </div>
+        </div>
+    
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn" 
+                class="top-button"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+            </svg>
+        </button>
+    </footer>
+       <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+       <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Scroll to top button functionality
+            window.addEventListener('scroll', function () {
+                const button = document.getElementById('scrollToTopBtn');
+                if (window.scrollY > 300) {
+                    button.classList.add('visible');
+                } else {
+                    button.classList.remove('visible');
+                }
+            });
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+>>>>>>> 55e020071753a6c4e193549f086c1b3797dac032
+der functionality
         window.addEventListener('load', function () {
             const preloader = document.getElementById('preloader');
             const body = document.body;
