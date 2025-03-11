@@ -4,30 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartSheet Automation</title>
-    <link rel="icon" href="assets/favicon.ico" type="image/ico">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <title>About Us | SmartSheet Automation</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/ico">
 
-    <!-- Moved Alpine.js to the end of body -->
     <style>
         :root {
             --primary: #38a169;
             --primary-dark: #2f855a;
             --secondary: #2d3748;
             --light: #f7fafc;
-            --dark: #38a169;
+            --dark: #38A169;
             --gray-100: #f7fafc;
             --gray-200: #edf2f7;
             --gray-300: #e2e8f0;
             --gray-800: #2d3748;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f9fafb;
-            line-height: 1.6;
         }
 
         * {
@@ -41,8 +37,6 @@
             color: var(--secondary);
             background: var(--light);
             line-height: 1.6;
-            overflow: hidden;
-            /* Prevent scrolling during preloader */
         }
 
         /* Preloader styles */
@@ -163,6 +157,7 @@
             gap: 2rem;
         }
 
+
         .nav-link {
             color: var(--secondary);
             text-decoration: none;
@@ -206,6 +201,10 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
+        .mobile-menu.active {
+            display: block;
+        }
+
         .mobile-link {
             display: block;
             padding: 0.75rem 0;
@@ -220,76 +219,125 @@
             color: var(--primary);
         }
 
-
-        /* Hero section */
-        .hero-section {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(246, 246, 246, 0.9) 100%), url('/api/placeholder/1920/400') center/cover no-repeat;
+            padding: 5rem 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            border-radius: 16px;
         }
 
-        .video-container {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            transform: translateY(0);
-            transition: transform 0.3s ease-out;
-            width: 100%;
-            margin: 0 auto;
+        .page-title {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
         }
 
-        .video-container:hover {
-            transform: translateY(-10px);
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
         }
 
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
+        /* Sections */
+        .section {
+            padding: 4rem 0;
         }
 
-        .content-block {
-            padding: 2rem;
-            border-radius: 12px;
-            background: white;
-            transform: translateY(0);
-            transition: transform 0.3s ease-out;
-        }
-
-        .content-block:hover {
-            transform: translateY(-10px);
-        }
-
-        .highlight-text {
+        .section-title {
             position: relative;
             display: inline-block;
-            color: #38a169;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
         }
 
-        .highlight-text:after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -2px;
+            bottom: 0;
             left: 0;
-            background-color: #38a169;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            width: 60%;
+            height: 3px;
+            background: var(--primary);
         }
 
-        .highlight-text:hover {
-            color: #2f855a;
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
         }
 
-        .highlight-text:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        /* Cards */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            flex: 1;
+            min-width: 300px;
+            transform: translateY(0);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--gray-100);
+            text-align: center;
+            padding: 4rem 0;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.875rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Top button styles from paste.txt */
         .top-button {
             position: fixed;
             bottom: 20px;
@@ -320,39 +368,16 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Custom animation */
-        @keyframes slideIn {
-            0% {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .animate-slide-in {
-            animation: slideIn 0.8s ease-out forwards;
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
         /* Media Queries */
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -361,30 +386,22 @@
                 display: block;
             }
 
-            .logo-text {
-                font-size: 1.1rem;
-            }
-
-            /* New styles for mobile video */
-            .video-container {
-                width: 100%;
-                margin-bottom: 2rem;
-            }
-
-            main .grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .video-container video {
-                width: 100%;
-                max-height: none;
-                object-fit: contain;
-            }
-
-            /* Show the mobile menu when active */
             .mobile-menu.active {
                 display: block;
+            }
+
+
+
+            .card-container {
+                flex-direction: column;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .section {
+                padding: 3rem 0;
             }
 
         }
@@ -396,7 +413,7 @@
     <div id="preloader">
         <img src="assets/logo.JPG" alt="SmartSheet Automation Logo" class="logo">
     </div>
-
+    <!-- Header -->
     <header class="site-header">
         <div class="container">
             <nav>
@@ -423,7 +440,7 @@
                 </button>
             </nav>
 
-            <!-- Mobile Menu - Changed to use vanilla JS instead of Alpine -->
+            <!-- Mobile Menu - Fixed to use vanilla JS -->
             <div id="mobileMenu" class="mobile-menu">
                 <a href="index.html" class="mobile-link">Home</a>
                 <a href="about.html" class="mobile-link">About Us</a>
@@ -433,79 +450,92 @@
             </div>
         </div>
     </header>
-    <main class="container mx-auto px-6 py-16">
-        <section class="grid md:grid-cols-2 gap-16 items-center mb-16">
-            <div class="video-container animate-slide-in" style="animation-delay: 0.2s">
-                <video autoplay loop muted playsinline webkit-playsinline>
-                    <source src="assets/smartsheet.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- Removed the green overlay as requested -->
-            </div>
-            <div class="content-block animate-slide-in" style="animation-delay: 0.4s">
-                <h1 class="text-4xl  mb-8 text-gray-800 animate-fade-in">Unleashing the Power of Automated
-                    Workflows!</span></h1>
-                <p class="mt-4 text-gray-700 leading-relaxed text-medium">
-                    At <span class="highlight-text">SmartSheet Automation</span>, we empower businesses with intelligent
-                    automation and data-driven solutions using Microsoft tools. Leveraging <span
-                        class="highlight-text">Excel, Power BI, and Power Automate</span>, we eliminate manual
-                    inefficiencies, deliver real-time analytics, and automate workflows for seamless operations. Our
-                    expertise in <span class="highlight-text">VBA, Power Query, and system integration</span> ensures
-                    businesses reduce errors, save time, and make smarter decisions. Let's elevate your business
-                    efficiency with tailored automation solutions!
-                </p>
+
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+        <div class="container">
+            <h1 class="page-title">About SmartSheet Automation</h1>
+            <p class="hero-subtitle">Your Trusted Partner for Business Process Automation</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Who We Are Section -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="intro">
+                SmartSheet Automation is a <span class="highlight">leading business process automation firm</span>
+                specializing in <span class="highlight">Excel, Power Query, VBA, and Power BI solutions</span>. We help
+                businesses <span class="highlight">streamline workflows, eliminate manual tasks, and enhance data-driven
+                    decision-making</span> through custom automation tools.
+            </p>
+
+            <div class="card-container">
+                <div class="card" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Our Mission</h3>
+                    <p>To <span class="highlight">empower businesses</span> with cutting-edge automation solutions that
+                        <span class="highlight">boost efficiency, reduce errors, and save time</span>.</p>
+                </div>
+
+                <div class="card" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Our Vision</h3>
+                    <p>To be the <span class="highlight">go-to automation partner</span> for businesses seeking to
+                        maximize productivity using <span class="highlight">Excel, Power Query, and Power BI</span>.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Added new feature section with improved spacing -->
-        <section class="my-20 animate-slide-in" style="animation-delay: 0.6s">
-            <h2 class="text-3xl  text-center mb-16 style=" color: #38A169;">Our Core Services</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div
-                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Excel Automation</h3>
-                    <p class="text-gray-600 text-center">Custom Excel solutions with VBA, macros, and advanced formulas
-                        to automate repetitive tasks.</p>
-                </div>
+        <!-- Why Choose Us Section -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="card" data-aos="zoom-in">
+                <ul>
+                    <li><span class="highlight">Expertise in Automation</span> – 10+ years of experience in <span
+                            class="highlight">Excel, Power Query, VBA, and Power BI</span>.</li>
+                    <li><span class="highlight">Custom Solutions</span> – Tailored automation tools designed to meet
+                        your specific business needs.</li>
+                    <li><span class="highlight">Time & Cost Savings</span> – Our solutions drastically <span
+                            class="highlight">reduce manual work</span> and improve efficiency.</li>
+                    <li><span class="highlight">Proven Track Record</span> – Successful automation projects across <span
+                            class="highlight">banking, retail, finance, and logistics</span>.</li>
+                </ul>
+            </div>
+        </section>
 
-                <div
-                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Power Automate</h3>
-                    <p class="text-gray-600 text-center">Streamlined workflows connecting your applications and services
-                        for seamless data flow.</p>
-                </div>
+        <!-- Our Journey Section -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="card" data-aos="fade-up">
+                <p>
+                    Founded by <span class="highlight">Patrick Kobe</span>, SmartSheet Automation started as a passion
+                    for <span class="highlight">simplifying business processes</span>. Over the years, we have helped
+                    multiple businesses <span class="highlight">transform their workflows</span>, making manual,
+                    repetitive tasks a thing of the past.
+                </p>
+            </div>
 
-                <div
-                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center mb-4 text-gray-800">Data Visualization</h3>
-                    <p class="text-gray-600 text-center">Powerful dashboards and reports using Power BI to transform
-                        your data into actionable insights.</p>
-                </div>
+            <h2 class="section-title">Our Clients</h2>
+            <div class="card" data-aos="fade-up">
+                <p>We serve a wide range of industries, including:</p>
+                <ul>
+                    <li><span class="highlight">Finance & Banking</span> – Automated reconciliations, financial
+                        reporting.</li>
+                    <li><span class="highlight">Retail & E-commerce</span> – Sales tracking, inventory management.</li>
+                    <li><span class="highlight">Human Resources</span> – Payroll automation, employee database
+                        management.</li>
+                    <li><span class="highlight">Logistics & Supply Chain</span> – Inventory and shipment tracking.</li>
+                </ul>
+            </div>
+
+            <div class="cta" data-aos="zoom-in">
+                <h3> Want to optimize your business workflows?</h3>
+                <a href="contact.html" class="btn">Let's Connect</a>
             </div>
         </section>
     </main>
 
-    <!-- Reverted to original footer as requested -->
+    <!-- Footer - UPDATED to match paste.txt -->
     <footer class="bg-gray-900 text-gray-400 py-16">
         <div class="container mx-auto px-6 max-w-2xl">
             <!-- Company Info -->
@@ -559,12 +589,10 @@
             </svg>
         </button>
     </footer>
-
-    <!-- AlpineJS script moved to end of body -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script>
-        // Vanilla JavaScript for mobile menu toggle
+        // Mobile menu toggle functionality
         document.addEventListener('DOMContentLoaded', function () {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -581,6 +609,13 @@
                 } else {
                     button.classList.remove('visible');
                 }
+            });
+
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true
             });
         });
 
