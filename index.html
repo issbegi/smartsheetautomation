@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
     <!-- Moved Alpine.js to the end of body -->
     <style>
@@ -236,16 +239,31 @@
             transition: transform 0.3s ease-out;
             width: 100%;
             margin: 0 auto;
+            aspect-ratio: 16/9; /* Maintain consistent aspect ratio */
         }
 
-        .video-container:hover {
-            transform: translateY(-10px);
-        }
-
-        .video-container video {
+        .video-container video,
+        .video-container .owl-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .video-container video.fade-out,
+        .video-container .owl-carousel.fade-out {
+            opacity: 0;
+        }
+
+        .video-container .owl-carousel {
+            opacity: 0;
+        }
+
+        .video-container .owl-carousel.fade-in {
+            opacity: 1;
         }
 
         .content-block {
@@ -386,7 +404,49 @@
             .mobile-menu.active {
                 display: block;
             }
+        }
 
+        /* Owl Carousel Custom Styles */
+        .owl-carousel {
+            width: 100%;
+            height: 100%;
+        }
+
+        .owl-carousel .item {
+            width: 100%;
+            height: 100%;
+        }
+
+        .owl-carousel .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* Remove unused navigation and dots styles */
+        .owl-nav, .owl-dots {
+            display: none !important;
+        }
+
+        /* Add fade animation styles */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        .owl-carousel .owl-item {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .owl-carousel .owl-item.active {
+            opacity: 1;
         }
     </style>
 </head>
@@ -436,11 +496,25 @@
     <main class="container mx-auto px-6 py-16">
         <section class="grid md:grid-cols-2 gap-16 items-center mb-16">
             <div class="video-container animate-slide-in" style="animation-delay: 0.2s">
-                <video autoplay loop muted playsinline webkit-playsinline>
+                <video id="heroVideo" autoplay muted playsinline webkit-playsinline>
                     <source src="assets/smartsheet.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <!-- Removed the green overlay as requested -->
+                <!-- Owl Carousel for images -->
+                <div id="imageCarousel" class="owl-carousel owl-theme" style="display: none;">
+                    <div class="item">
+                        <img src="assets/1.jpg" alt="Slide 1">
+                    </div>
+                    <div class="item">
+                        <img src="assets/2.jpg" alt="Slide 2">
+                    </div>
+                    <div class="item">
+                        <img src="assets/3.jpg" alt="Slide 3">
+                    </div>
+                    <div class="item">
+                        <img src="assets/4.jpg" alt="Slide 4">
+                    </div>
+                </div>
             </div>
             <div class="content-block animate-slide-in" style="animation-delay: 0.4s">
                 <h1 class="text-4xl  mb-8 text-gray-800 animate-fade-in">Unleashing the Power of Automated
@@ -599,6 +673,69 @@
                     body.style.overflow = 'auto'; // Re-enable scrolling
                 }, 500);
             }, 1500);
+        });
+    </script>
+
+    <!-- Add jQuery and Owl Carousel JS before the closing body tag -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Initialize Owl Carousel
+            var owl = $('#imageCarousel').owlCarousel({
+                items: 1,
+                loop: false,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: false,
+                dots: false,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                smartSpeed: 1000,
+                onInitialized: function() {
+                    carouselCycle = 0;
+                }
+            });
+
+            // Get video element
+            var video = document.getElementById('heroVideo');
+            var carouselCycle = 0;
+            var lastTransitionTime = 0;
+            
+            // When video ends, fade out video and fade in carousel
+            video.addEventListener('ended', function() {
+                video.classList.add('fade-out');
+                setTimeout(function() {
+                    $('#imageCarousel').show().addClass('fade-in');
+                    lastTransitionTime = Date.now();
+                    // Reset carousel to first slide when starting
+                    owl.trigger('to.owl.carousel', [0, 0]);
+                }, 500);
+            });
+
+            // Track carousel position and handle transitions
+            owl.on('changed.owl.carousel', function(event) {
+                var currentItem = event.item.index;
+                carouselCycle = currentItem + 1; // Add 1 because index is 0-based
+                
+                // If we're on the last image (index 3), prepare for video transition
+                if (currentItem === 3) {
+                    setTimeout(function() {
+                        // Stop the autoplay
+                        owl.trigger('stop.owl.autoplay');
+                        // Fade out carousel and show video
+                        $('#imageCarousel').removeClass('fade-in').addClass('fade-out');
+                        setTimeout(function() {
+                            $('#imageCarousel').hide();
+                            video.classList.remove('fade-out');
+                            video.play();
+                            carouselCycle = 0;
+                        }, 1000);
+                    }, 5000); // Wait for the last image to display for 5 seconds
+                }
+            });
         });
     </script>
 </body>
